@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials | Sabby’s Nail Collection</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Better Saturday';
+            src: url('fonts/Better-Saturday.woff2') format('woff2');
+            font-weight: normal; font-style: normal;
+        }
+        body { font-family: 'Lato', sans-serif; background-color: #FFFDFD; }
+        .font-logo-main { font-family: 'Better Saturday', cursive; }
+        .font-logo-tagline { font-family: 'Open Sans', sans-serif; }
+        .text-brand-dark { color: #5B4B49; }
+        .text-brand-pink { color: #E4B4B4; }
+        .nav-link { transition: color 0.3s ease; color: #5B4B49; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+        .nav-link:hover { color: #E4B4B4; }
+        .nav-active { color: #E4B4B4; }
+        .btn-primary { border: 1px solid #5B4B49; color: #5B4B49; padding: 10px 24px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; }
+        .btn-primary:hover { background-color: #5B4B49; color: #FFFFFF; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
+        .bg-blush { background-color: #FDF6F5; }
+    </style>
+</head>
+<body class="text-brand-dark">
+
+    <header class="bg-white sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="w-1/3 text-right">
+                <ul class="flex space-x-6 items-center justify-end">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="gallery.html" class="nav-link">About & Gallery</a></li>
+                </ul>
+            </div>
+            <div class="w-1/3 text-center">
+                <a href="index.html">
+                    <div class="font-logo-main text-4xl text-brand-dark leading-none">Sabby's Nail Collection</div>
+                    <div class="font-logo-tagline text-xs uppercase tracking-widest text-gray-500 mt-2">A ray of style</div>
+                </a>
+            </div>
+            <div class="w-1/3 text-left">
+                <ul class="flex space-x-6 items-center">
+                    <li><a href="store.html" class="nav-link">Store</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="booking.html" class="px-5 py-2 text-sm border border-brand-dark rounded-full hover:bg-brand-dark hover:text-white transition-colors duration-300">Book Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Header Section -->
+    <section class="text-center py-20 bg-blush"><h1 class="text-5xl font-bold">Client Stories</h1><p class="text-gray-500 mt-2">We love our clients, and they love us!</p></section>
+
+    <!-- Testimonials Grid -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-lg shadow-md text-left"><p class="text-gray-600 mb-6 italic">"Sabiha is a true artist! I walked out with the most amazing nails. The attention to detail was incredible. I can't wait for my next appointment!"</p><p class="font-bold text-brand-dark">- Priya S.</p></div>
+            <div class="bg-white p-8 rounded-lg shadow-md text-left"><p class="text-gray-600 mb-6 italic">"The best nail experience I've ever had. So professional, clean, and the results are stunning. My gel extensions have lasted perfectly for weeks."</p><p class="font-bold text-brand-dark">- Anjali M.</p></div>
+            <div class="bg-white p-8 rounded-lg shadow-md text-left"><p class="text-gray-600 mb-6 italic">"I'm so glad I found Sabby's Nail Collection! Sabiha is so talented and friendly. She gave me great advice on how to care for my nails."</p><p class="font-bold text-brand-dark">- Fatima K.</p></div>
+            <div class="bg-white p-8 rounded-lg shadow-md text-left"><p class="text-gray-600 mb-6 italic">"Absolutely in love with my nails! The custom art is gorgeous and exactly what I wanted. The entire process was so relaxing."</p><p class="font-bold text-brand-dark">- Neha R.</p></div>
+            <div class="bg-white p-8 rounded-lg shadow-md text-left"><p class="text-gray-600 mb-6 italic">"A truly luxurious experience. Sabiha is meticulous and uses high-quality products. My nails have never looked or felt healthier."</p><p class="font-bold text-brand-dark">- Aisha P.</p></div>
+            <div class="bg-white p-8 rounded-lg shadow-md text-left"><p class="text-gray-600 mb-6 italic">"From the moment I walked in, I felt pampered. The salon is beautiful, and Sabiha's work is second to none. Highly recommended!"</p><p class="font-bold text-brand-dark">- Meera D.</p></div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-12 text-center bg-blush">
+  <h2 class="text-4xl font-bold">Ready for your own beautiful story?</h2>
+  <p class="text-gray-500 mt-2 mb-6">Book your appointment and let us pamper you.</p>
+  <a href="booking.html" class="btn-primary">Book an Appointment</a>
+</section>
+
+<footer class="bg-brand-dark text-black-400 text-center py-10">
+  <p class="text-sm">© 2025 Sabby’s Nail Collection. All Rights Reserved.</p>
+  <p class="text-xs text-gray-300 mt-2">Designed with care in Mumbai</p>
+</footer>

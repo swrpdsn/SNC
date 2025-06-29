@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Pricing | Sabby’s Nail Collection</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Better Saturday';
+            src: url('fonts/Better-Saturday.woff2') format('woff2');
+            font-weight: normal; font-style: normal;
+        }
+        body { font-family: 'Lato', sans-serif; background-color: #FFFDFD; }
+        .font-logo-main { font-family: 'Better Saturday', cursive; }
+        .font-logo-tagline { font-family: 'Open Sans', sans-serif; }
+        .text-brand-dark { color: #5B4B49; }
+        .text-brand-pink { color: #E4B4B4; }
+        .nav-link { transition: color 0.3s ease; color: #5B4B49; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+        .nav-link:hover { color: #E4B4B4; }
+        .nav-active { color: #E4B4B4; }
+        .btn-primary { border: 1px solid #5B4B49; color: #5B4B49; padding: 10px 24px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; }
+        .btn-primary:hover { background-color: #5B4B49; color: #FFFFFF; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
+        .bg-blush { background-color: #FDF6F5; }
+    </style>
+</head>
+<body class="text-brand-dark">
+
+    <header class="bg-white sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="w-1/3 text-right">
+                <ul class="flex space-x-6 items-center justify-end">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="services.html" class="nav-link nav-active font-bold">Services</a></li>
+                    <li><a href="gallery.html" class="nav-link">About & Gallery</a></li>
+                </ul>
+            </div>
+            <div class="w-1/3 text-center">
+                <a href="index.html">
+                    <div class="font-logo-main text-4xl text-brand-dark leading-none">Sabby's Nail Collection</div>
+                    <div class="font-logo-tagline text-xs uppercase tracking-widest text-gray-500 mt-2">A ray of style</div>
+                </a>
+            </div>
+            <div class="w-1/3 text-left">
+                <ul class="flex space-x-6 items-center">
+                    <li><a href="store.html" class="nav-link">Store</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="booking.html" class="px-5 py-2 text-sm border border-brand-dark rounded-full hover:bg-brand-dark hover:text-white transition-colors duration-300">Book Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Header Section -->
+    <section class="text-center py-20 bg-blush">
+        <h1 class="text-5xl font-bold">Our Menu</h1>
+        <p class="text-gray-500 mt-2">Luxury Nail Art at Affordable Prices</p>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-4xl">
+            <div class="mb-16"><h2 class="text-3xl font-bold text-center mb-10">Nail Extensions</h2><div class="border-t border-b border-gray-200 divide-y divide-gray-200"><div class="p-6 flex justify-between items-center"><h3 class="text-xl">Acrylic Nail Extensions</h3><p class="text-xl font-bold text-brand-pink">₹1,500</p></div><div class="p-6 flex justify-between items-center"><h3 class="text-xl">Gel Nail Extensions</h3><p class="text-xl font-bold text-brand-pink">₹1,800</p></div></div></div>
+            <div class="mb-16"><h2 class="text-3xl font-bold text-center mb-10">Nail Art</h2><div class="border-t border-b border-gray-200 divide-y divide-gray-200"><div class="p-6 flex justify-between items-center"><h3 class="text-xl">Basic Nail Art (Per Nail)</h3><p class="text-xl font-bold text-brand-pink">from ₹50</p></div><div class="p-6 flex justify-between items-center"><h3 class="text-xl">French Tip / Ombré / Chrome</h3><p class="text-xl font-bold text-brand-pink">from ₹800</p></div><div class="p-6 flex justify-between items-center"><h3 class="text-xl">3D & Embellished Art</h3><p class="text-xl font-bold text-brand-pink">from ₹1,200</p></div><div class="p-6 flex justify-between items-center"><h3 class="text-xl">Swarovski Crystal Art</h3><p class="text-xl font-bold text-brand-pink">from ₹1,500</p></div></div></div>
+            <div class="text-center bg-blush p-10 rounded-lg"><h2 class="text-3xl font-bold mb-8">Add-Ons</h2><div class="max-w-md mx-auto text-left space-y-4"><div class="flex justify-between"><p>Gel Polish Removal</p><p class="font-bold">₹300</p></div><div class="flex justify-between"><p>Nail Repair (Per Nail)</p><p class="font-bold">₹150</p></div><div class="flex justify-between"><p>Hard Gel/Acrylic Removal</p><p class="font-bold">₹500</p></div></div></div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-20 text-center">
+        <h2 class="text-4xl font-bold">Ready for beautiful nails?</h2>
+        <p class="text-gray-500 mt-2 mb-8">Book your appointment today and experience the difference.</p>
+        <a href="booking.html" class="btn-primary">Book an Appointment</a>
+    </section>
+    
+    <footer class="bg-brand-dark text-black-400 text-center py-8"><p>© 2025 Sabby’s Nail Collection. All Rights Reserved.</p><p class="text-xs text-gray-400 mt-2">Designed with care in Mumbai</p></footer>
+</body>
+</html>
