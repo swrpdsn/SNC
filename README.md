@@ -40,6 +40,6 @@ Follow our journey on Instagram: [@sabbysnailsart20](https://www.instagram.com/s
 
 ## 👩‍🎨 Crafted with love by  
 **Sabiha & Swaruup**  
-Hisband Productions
+Hisband Works
 # SNC
 SNC
