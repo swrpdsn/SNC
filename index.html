@@ -1,162 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ✅ Google Search Console Verification -->
-    <meta name="google-site-verification" content="3Efs_oa0KFOW_T1puQOnarVe6YxFwyCZzHjFr2GkZB8" />
-    <title>Sabby’s Nail Collection – A Ray of Style</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-    @font-face {
-        font-family: 'Better Saturday';
-        src: url('fonts/BetterSaturday.woff2') format('woff2');
-        font-weight: normal;
-        font-style: normal;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sabby’s Nail Collection – A Ray of Style</title>
+
+  <!-- Tailwind -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* In-between Peachy Pink (warm, studio-feel, not dusty) */
+      --bg:#E5D1D3;          /* warm peachy blush */
+      --panel:#D7BFC4;       /* deeper peach-pink panel */
+      --text:#2F2527;        /* deep cocoa */
+      --muted:#5A4A4E;       /* warm muted text */
+      --accent:#7A2F4A;      /* wine (kept tasteful) */
+      --accent2:#B56978;     /* warmer rose accent */
+      --border:#C7A8AF;      /* soft border */
     }
-    body { font-family: 'Lato', sans-serif; background-color: #FFFDFD; margin: 0; }
-    .font-logo-main { font-family: 'Better Saturday', cursive; }
-    .font-logo-tagline { font-family: 'Open Sans', sans-serif; }
-    .text-brand-dark { color: #5B4B49; }
-    .text-brand-pink { color: #E4B4B4; }
-    .nav-link { transition: color 0.3s ease; color: #5B4B49; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
-    .nav-link:hover { color: #E4B4B4; }
-    .nav-active { color: #E4B4B4; }
-    .btn-primary { border: 1px solid #5B4B49; color: #5B4B49; padding: 10px 24px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; }
-    .btn-primary:hover { background-color: #5B4B49; color: #FFFFFF; }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
-    .bg-blush { background-color: #FDF6F5; }
-</style>
+
+    html{ scroll-behavior:smooth; }
+
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      margin:0;
+    }
+
+    /* Brand calligraphy */
+    .font-logo-main{
+      font-family:'Great Vibes',cursive;
+      letter-spacing:0.8px;
+      color:var(--accent2);
+    }
+
+    /* Headings */
+    h1,h2,h3,h4,h5,h6{
+      font-family:'Playfair Display',serif;
+      color:var(--text);
+    }
+
+    .nav-link{
+      font-size:0.75rem;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      color:var(--muted);
+      transition:all .25s ease;
+    }
+    .nav-link:hover{color:var(--accent2);}
+    .nav-active{color:var(--accent2);}
+
+    .btn-primary{
+      border:1px solid var(--accent);
+      color:var(--accent2);
+      padding:12px 32px;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      border-radius:9999px;
+      transition:all .25s ease;
+      display:inline-block;
+      background:transparent;
+    }
+    .btn-primary:hover{
+      background:var(--accent);
+      color:#fff;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+    }
+
+    /* ========= Scroll Reveal System ========= */
+    .reveal{
+      opacity:0;
+      transform: translateY(18px);
+      filter: blur(6px);
+      transition: opacity .8s ease, transform .8s ease, filter .8s ease;
+      will-change: transform, opacity, filter;
+    }
+    .reveal.from-left{ transform: translateX(-24px); }
+    .reveal.from-right{ transform: translateX(24px); }
+    .reveal.fade-up{ transform: translateY(18px); }
+    .reveal.scale-in{ transform: scale(.98); }
+
+    .reveal.is-visible{
+      opacity:1;
+      transform: translateX(0) translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    /* Stagger (cards etc.) */
+    .reveal[data-delay="1"]{ transition-delay: .06s; }
+    .reveal[data-delay="2"]{ transition-delay: .12s; }
+    .reveal[data-delay="3"]{ transition-delay: .18s; }
+
+    /* Reduced motion accessibility */
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      .reveal{ opacity:1; transform:none !important; filter:none !important; transition:none !important; }
+    }
+  </style>
 </head>
-<body class="text-brand-dark">
-<header class="bg-white sticky top-0 z-50 shadow-sm">
-  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <div class="w-1/3 text-right">
-      <ul class="flex space-x-6 items-center justify-end">
-        <li><a href="index.html" class="nav-link nav-active font-bold">Home</a></li>
-        <li><a href="services.html" class="nav-link">Services</a></li>
-        <li><a href="gallery.html" class="nav-link">About & Gallery</a></li>
-      </ul>
-    </div>
-    <div class="w-1/3 text-center">
-      <a href="index.html">
-        <div class="font-logo-main text-4xl text-brand-dark leading-none">Sabby's Nail Collection</div>
-        <div class="font-logo-tagline text-xs uppercase tracking-widest text-gray-500 mt-2">A ray of style</div>
-      </a>
-    </div>
-    <div class="w-1/3 text-left">
-      <ul class="flex space-x-6 items-center">
-        <li><a href="store.html" class="nav-link">Store</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
-        <li><a href="booking.html" class="px-5 py-2 text-sm border border-brand-dark rounded-full hover:bg-brand-dark hover:text-white transition-colors duration-300">Book Now</a></li>
-      </ul>
+
+<body>
+
+<!-- HEADER -->
+<header class="sticky top-0 z-50" style="background:var(--panel);border-bottom:1px solid var(--border)">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex space-x-8 items-center">
+      <a class="nav-link nav-active" href="index.html">Home</a>
+      <a class="nav-link" href="services.html">Services</a>
+      <a class="nav-link" href="gallery.html">Gallery</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Brand -->
+    <a href="index.html" class="text-center">
+      <div class="font-logo-main leading-none">
+        <div class="inline-block text-center">
+          <div class="text-3xl mb-1">Sabby’s</div>
+          <div class="text-2xl">Nail Collection</div>
+          <div class="mt-1 text-[10px] uppercase tracking-widest font-sans" style="color:var(--muted)">
+            A RAY OF STYLE
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Desktop CTA -->
+    <a class="hidden md:inline btn-primary" href="booking.html">Book Now</a>
+
+    <!-- Mobile menu button -->
+    <button id="menuBtn"
+      class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full"
+      style="border:1px solid var(--border); color:var(--text);">
+      <span class="sr-only">Open Menu</span>
+      <!-- Hamburger -->
+      <svg id="iconHamburger" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 7H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M4 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M4 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <!-- Close -->
+      <svg id="iconClose" class="hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div id="mobileMenu" class="md:hidden hidden" style="background:var(--panel);border-top:1px solid var(--border)">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col space-y-4">
+      <a class="nav-link nav-active" href="index.html">Home</a>
+      <a class="nav-link" href="services.html">Services</a>
+      <a class="nav-link" href="gallery.html">Gallery</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+      <a class="btn-primary w-max" href="booking.html">Book Now</a>
     </div>
   </div>
 </header>
 
-<main class="pt-0">
-  <!-- Hero Section -->
-  <section class="flex items-center bg-blush">
-    <div class="container mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
-      <div class="text-left">
-        <div class="mb-8">
-          <h1 class="font-logo-main text-5xl md:text-6xl text-brand-dark leading-tight">
-            Sabby's Nail Collection.
-          </h1>
-          <h2 class="text-3xl md:text-4xl text-brand-dark">
-            A Ray of Style.
-          </h2>
+<main>
+
+  <!-- HERO (Parallax target wrappers) -->
+  <section class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-14 items-center">
+
+      <!-- Left -->
+      <div id="heroText" class="text-center md:text-left reveal fade-up">
+        <div class="font-logo-main leading-none">
+          <div class="inline-block text-center md:text-left">
+            <div class="text-4xl sm:text-5xl md:text-6xl mb-2">Sabby’s</div>
+            <div class="text-3xl sm:text-4xl md:text-5xl">Nail Collection</div>
+            <div class="mt-2 text-sm md:text-base tracking-widest uppercase font-sans" style="color:var(--muted)">
+              A RAY OF STYLE
+            </div>
+          </div>
         </div>
-        <p class="text-lg text-gray-600 mb-8">
-          Step into Mumbai’s newest nail haven.<br>
+
+        <p class="mt-6 text-lg" style="color:var(--muted)">
+          Step into Mumbai’s newest nail haven.<br class="hidden sm:block">
           Personalized, luxurious nail art made just for you.
         </p>
-        <a href="booking.html" class="btn-primary">Book an Appointment</a>
+
+        <div class="mt-10">
+          <a class="btn-primary" href="booking.html">Book an Appointment</a>
+        </div>
       </div>
-      <div class="hidden md:block">
-        <img src="images/mint-leaf-nails.jpg" alt="Mint green and white nail art with leaf design" class="rounded-lg shadow-xl w-full max-w-[420px] h-auto mx-auto md:mx-0">
+
+      <!-- Right image -->
+      <div id="heroMedia" class="flex justify-center md:justify-end reveal scale-in" data-delay="1">
+        <div class="card rounded-3xl overflow-hidden w-full max-w-md shadow-lg">
+          <img
+            src="Assets/images/mint-leaf-nails.jpg"
+            alt="Mint green and white nail art with leaf design"
+            class="w-full h-80 object-cover"
+          >
+        </div>
       </div>
+
     </div>
   </section>
 
   <!-- Our Signature Services -->
-  <section class="py-20 px-6 text-center">
-    <h2 class="text-4xl font-bold">Our Signature Services</h2>
-    <p class="text-gray-500 mt-2 mb-12">Discover our range of professional nail care.</p>
-    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="group">
-        <div class="overflow-hidden rounded-lg">
-          <img src="images/nail-extensions.jpg" alt="Nail Extensions" class="w-full h-72 object-cover rounded-lg group-hover:scale-110 transition-transform duration-500">
+  <section class="py-16 sm:py-20 px-6 text-center">
+    <h2 class="text-4xl font-bold reveal fade-up">Our Signature Services</h2>
+    <p class="mt-2 mb-10 reveal fade-up" data-delay="1" style="color:var(--muted)">
+      Discover our range of professional nail care.
+    </p>
+
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+      <div class="group reveal from-left">
+        <div class="card overflow-hidden rounded-3xl">
+          <img src="Assets/images/nail-extensions.jpg" alt="Nail Extensions"
+               class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500">
         </div>
         <h3 class="text-2xl font-semibold mt-6">Nail Extensions</h3>
-        <p class="text-gray-600 mt-1">Durable and beautiful acrylic & gel extensions.</p>
+        <p class="mt-1" style="color:var(--muted)">Durable and beautiful acrylic & gel extensions.</p>
       </div>
-      <div class="group">
-        <div class="overflow-hidden rounded-lg">
-          <img src="images/custom-nail-art.jpg" alt="Custom Nail Art" class="w-full h-72 object-cover rounded-lg group-hover:scale-110 transition-transform duration-500">
+
+      <div class="group reveal from-right" data-delay="1">
+        <div class="card overflow-hidden rounded-3xl">
+          <img src="Assets/images/custom-nail-art.jpg" alt="Custom Nail Art"
+               class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500">
         </div>
         <h3 class="text-2xl font-semibold mt-6">Custom Nail Art</h3>
-        <p class="text-gray-600 mt-1">Unique designs to express your personal style.</p>
+        <p class="mt-1" style="color:var(--muted)">Unique designs to express your personal style.</p>
       </div>
     </div>
-    <div class="mt-12">
+
+    <div class="mt-12 reveal fade-up" data-delay="2">
       <a href="services.html" class="btn-primary">View Full Menu</a>
     </div>
   </section>
 
-  <!-- Meet Sabiha Section -->
-  <section class="bg-blush py-20 px-6">
-    <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
-      <div class="flex justify-center">
-        <img src="images/profile.jpg" alt="Sabiha, certified nail artist" class="rounded-lg shadow-xl w-full max-w-sm">
+  <!-- Meet Sabiha -->
+  <section class="py-16 sm:py-20 px-6">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+      <div class="flex justify-center reveal from-left">
+        <div class="card rounded-3xl overflow-hidden w-full max-w-sm shadow-lg">
+          <img src="Assets/images/Profile.jpg" alt="Sabiha, certified nail artist"
+               class="w-full h-96 object-cover">
+        </div>
       </div>
-      <div class="text-left">
+
+      <div class="text-center md:text-left reveal from-right" data-delay="1">
         <h2 class="text-4xl font-bold mb-4">Meet Sabiha</h2>
-        <h3 class="text-xl font-bold text-brand-pink mb-4">Certified Nail Artist & Care Expert</h3>
-        <p class="text-gray-600 mb-6">Sabiha blends her passion for creativity with a commitment to nail health. With a professional diploma in Nail Art and Design, she offers personalized services that ensure your nails are not only beautiful but also strong and healthy.</p>
+        <h3 class="text-xl font-bold mb-4" style="color:var(--accent2)">
+          Certified Nail Artist & Care Expert
+        </h3>
+        <p class="mb-6" style="color:var(--muted)">
+          Sabiha blends her passion for creativity with a commitment to nail health.
+          With a professional diploma in Nail Art and Design, she offers personalized services
+          that ensure your nails are not only beautiful but also strong and healthy.
+        </p>
         <a href="gallery.html" class="btn-primary">Learn More & See Her Work</a>
       </div>
+
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <section class="py-20 px-6 text-center">
-    <h2 class="text-4xl font-bold">What Our Clients Say</h2>
-    <p class="text-gray-500 mt-2 mb-12">We love our clients, and they love us!</p>
-    <div class="container mx-auto grid md:grid-cols-3 gap-8 text-left">
-      <div class="bg-white p-8 rounded-lg shadow-md">
-        <p class="text-gray-600 mb-6">"Sabiha is a true artist! I walked out with the most amazing nails. The attention to detail was incredible. I can't wait for my next appointment!"</p>
-        <p class="font-bold text-brand-dark">- Priya S.</p>
+  <!-- Testimonials -->
+  <section class="py-16 sm:py-20 px-6 text-center">
+    <h2 class="text-4xl font-bold reveal fade-up">What Our Clients Say</h2>
+    <p class="mt-2 mb-10 reveal fade-up" data-delay="1" style="color:var(--muted)">
+      We love our clients, and they love us!
+    </p>
+
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+      <div class="card p-8 rounded-3xl shadow-md reveal fade-up">
+        <p class="mb-6" style="color:var(--muted)">
+          "Sabiha is a true artist! I walked out with the most amazing nails.
+          The attention to detail was incredible. I can't wait for my next appointment!"
+        </p>
+        <p class="font-bold">- Priya S.</p>
       </div>
-      <div class="bg-white p-8 rounded-lg shadow-md">
-        <p class="text-gray-600 mb-6">"The best nail experience I've ever had. So professional, clean, and the results are stunning. My gel extensions have lasted perfectly."</p>
-        <p class="font-bold text-brand-dark">- Anjali M.</p>
+
+      <div class="card p-8 rounded-3xl shadow-md reveal fade-up" data-delay="1">
+        <p class="mb-6" style="color:var(--muted)">
+          "The best nail experience I've ever had. So professional, clean, and the results are stunning.
+          My gel extensions have lasted perfectly."
+        </p>
+        <p class="font-bold">- Anjali M.</p>
       </div>
-      <div class="bg-white p-8 rounded-lg shadow-md">
-        <p class="text-gray-600 mb-6">"I'm so glad I found Sabby's Nail Collection! Sabiha is so talented and friendly. She gave me great advice on how to care for my nails."</p>
-        <p class="font-bold text-brand-dark">- Fatima K.</p>
+
+      <div class="card p-8 rounded-3xl shadow-md reveal fade-up" data-delay="2">
+        <p class="mb-6" style="color:var(--muted)">
+          "I'm so glad I found Sabby's Nail Collection! Sabiha is so talented and friendly.
+          She gave me great advice on how to care for my nails."
+        </p>
+        <p class="font-bold">- Fatima K.</p>
       </div>
     </div>
-    <div class="mt-12">
+
+    <div class="mt-12 reveal fade-up" data-delay="3">
       <a href="testimonial.html" class="btn-primary">Read More Stories</a>
     </div>
   </section>
 
-  <!-- Instagram Section -->
-  <section class="bg-blush py-20 text-center">
-    <h2 class="text-4xl font-bold">Follow Our Journey</h2>
-    <p class="text-gray-500 mt-2 mb-8">Get inspired by our latest creations on Instagram <a href="https://www.instagram.com/sabbysnailsart20" class="text-brand-pink font-bold">@sabbysnailsart20</a></p>
-    <a href="https://www.instagram.com/sabbysnailsart20" target="_blank" class="btn-primary">Follow Us</a>
+  <!-- Instagram -->
+  <section class="py-16 sm:py-20 text-center px-6">
+    <h2 class="text-4xl font-bold reveal fade-up">Follow Our Journey</h2>
+    <p class="mt-2 mb-8 reveal fade-up" data-delay="1" style="color:var(--muted)">
+      Get inspired by our latest creations on Instagram
+      <a href="https://www.instagram.com/sabbysnailsart20" class="font-bold" style="color:var(--accent2)">
+        @sabbysnailsart20
+      </a>
+    </p>
+    <a href="https://www.instagram.com/sabbysnailsart20" target="_blank" class="btn-primary reveal fade-up" data-delay="2" rel="noopener">
+      Follow Us
+    </a>
   </section>
+
 </main>
 
-<footer class="bg-brand-dark text-black-400 text-center py-8">
+<footer class="py-10 text-center" style="background:var(--panel);border-top:1px solid var(--border)">
   <p>© 2025 Sabby’s Nail Collection. All Rights Reserved.</p>
-  <p class="text-xs text-gray-400 mt-2">Designed with care in Mumbai</p>
+  <p class="text-xs mt-2" style="color:var(--muted)">Designed with care in Mumbai</p>
 </footer>
+
+<script>
+  // Mobile menu toggle
+  (function () {
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    const iconHamburger = document.getElementById('iconHamburger');
+    const iconClose = document.getElementById('iconClose');
+
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      iconHamburger.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+    });
+
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        iconHamburger.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      });
+    });
+  })();
+
+  // Scroll Reveal (IntersectionObserver)
+  (function () {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    const items = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18, rootMargin: '0px 0px -12% 0px' });
+
+    items.forEach(el => io.observe(el));
+  })();
+
+  // Hero Parallax (subtle drop/move on scroll)
+  (function () {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    const heroText = document.getElementById('heroText');
+    const heroMedia = document.getElementById('heroMedia');
+    if (!heroText || !heroMedia) return;
+
+    let ticking = false;
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+
+      window.requestAnimationFrame(() => {
+        const y = window.scrollY || 0;
+
+        // Keep subtle and premium (clamp max)
+        const textMove = Math.min(y * 0.10, 28);   // text drops a bit
+        const mediaMove = Math.min(y * 0.06, 18);  // image moves slower
+
+        heroText.style.transform = `translateY(${textMove}px)`;
+        heroMedia.style.transform = `translateY(${mediaMove}px)`;
+
+        ticking = false;
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script>
 
 </body>
 </html>
