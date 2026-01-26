@@ -174,17 +174,18 @@
 
 <main>
 
-  <!-- HERO (Parallax target wrappers) -->
+  <!-- HERO -->
   <section class="py-16 sm:py-20">
     <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-14 items-center">
 
       <!-- Left -->
       <div id="heroText" class="text-center md:text-left reveal fade-up">
         <div class="font-logo-main leading-none">
-          <div class="inline-block text-center md:text-left">
-            <div class="text-4xl sm:text-5xl md:text-6xl mb-2">Sabby’s</div>
-            <div class="text-3xl sm:text-4xl md:text-5xl">Nail Collection</div>
-            <div class="mt-2 text-sm md:text-base tracking-widest uppercase font-sans" style="color:var(--muted)">
+          <!-- Added IDs for GSAP control -->
+          <div id="heroTitle" class="inline-block text-center md:text-left">
+            <div id="heroSabby" class="text-4xl sm:text-5xl md:text-6xl mb-2">Sabby’s</div>
+            <div id="heroNail" class="text-3xl sm:text-4xl md:text-5xl">Nail Collection</div>
+            <div id="heroTag" class="mt-2 text-sm md:text-base tracking-widest uppercase font-sans" style="color:var(--muted)">
               A RAY OF STYLE
             </div>
           </div>
@@ -332,6 +333,10 @@
   <p class="text-xs mt-2" style="color:var(--muted)">Designed with care in Mumbai</p>
 </footer>
 
+<!-- ✅ GSAP (Luxury Scroll) -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
 <script>
   // Mobile menu toggle
   (function () {
@@ -373,7 +378,7 @@
     items.forEach(el => io.observe(el));
   })();
 
-  // Hero Parallax (subtle drop/move on scroll)
+  // Hero Parallax (subtle drop/move on scroll) - keeps your original effect
   (function () {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) return;
@@ -392,9 +397,10 @@
         const y = window.scrollY || 0;
 
         // Keep subtle and premium (clamp max)
-        const textMove = Math.min(y * 0.10, 28);   // text drops a bit
-        const mediaMove = Math.min(y * 0.06, 18);  // image moves slower
+        const textMove = Math.min(y * 0.10, 28);
+        const mediaMove = Math.min(y * 0.06, 18);
 
+        // NOTE: these transforms apply to wrappers. GSAP handles inner title lines.
         heroText.style.transform = `translateY(${textMove}px)`;
         heroMedia.style.transform = `translateY(${mediaMove}px)`;
 
@@ -403,6 +409,32 @@
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+
+  // ✅ GSAP Luxury Scroll for Hero Title Lines (Sabby's left, Nail right, Tag up)
+  (function(){
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Set initial positions
+    gsap.set("#heroSabby", { x: -120, opacity: 0 });
+    gsap.set("#heroNail",  { x:  120, opacity: 0 });
+    gsap.set("#heroTag",   { y:   28, opacity: 0 });
+
+    // Scroll-tied timeline (luxury feel + reversible)
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: "#heroTitle",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: 1
+      }
+    })
+    .to("#heroSabby", { x: 0, opacity: 1, ease: "power3.out", duration: 1 }, 0)
+    .to("#heroNail",  { x: 0, opacity: 1, ease: "power3.out", duration: 1 }, 0.1)
+    .to("#heroTag",   { y: 0, opacity: 1, ease: "power2.out", duration: 0.8 }, 0.35);
   })();
 </script>
 
